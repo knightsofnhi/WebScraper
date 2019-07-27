@@ -1,0 +1,29 @@
+{
+  "name": "mongoose_skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.1",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.7",
+    "morgan": "^1.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knightsofnhi/newscomments.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/knightsofnhi/newscomments/issues"
+  },
+  "homepage": "https://github.com/knightsofnhi/newscomments#readme"
+}
