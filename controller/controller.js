@@ -50,3 +50,14 @@ router.get("/scrape", function(req,res){
         res.redirect("/");
     });
 });
+
+router.get("./articles", function(req, res){
+    Article.find().sort({_id: -1}).exec(function(err, doc){
+        if (err) {
+            console.log(err)
+        } else {
+            var artcl = { article: doc};
+            res.render("index", artcl);
+        } 
+    });
+});
