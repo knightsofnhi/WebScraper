@@ -11,3 +11,42 @@ var Article = require("../models/Article.js");
 router.get("/", function(req,res){
     res.redirect("/articles");
 });
+
+router.get("/scrape", function(req,res){
+    request("https://www.buzzfeednews.com/", function(error, response, html){
+        var $ = cheerio.load(html);
+        var titlesArray = [];
+        $(".link-initial").each(function(i, element){
+            var result();
+            result.title = $(this)
+            .children("a")
+            .text();
+            result.link = $(this)
+            .children("a")
+            .attr("href");
+
+            if(result.title !== "" &&result.link !==""){
+                if(titlesArray.indexOf(result.title) == -1) {
+                    titlesArray.push(result.title);
+                    Article.count({title: result.title}, function(err.text){
+                        if (test === 0) {
+                            var entry = new Article(result);
+                            entry.save(function(err,doc){
+                                if (err) {
+                                    console.log(err);
+                                } else {
+                                    console.log(doc);
+                                }
+                            });
+                        }
+                    });
+                } else {
+                    console.log("Article already exists.");
+                }
+            } else {
+                console.log("Not saved to DB, missing data.");
+            }
+        });
+        res.redirect("/");
+    });
+});
