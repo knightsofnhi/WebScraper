@@ -61,3 +61,15 @@ router.get("./articles", function(req, res){
         } 
     });
 });
+
+router.get("/articles-json", function(req, res) {
+    Article.find({}, function(err, doc){
+        if (err) {
+            console.log(err)
+        } else {
+            res.json(doc);
+        }
+    });
+});
+
+module.exports = router;
