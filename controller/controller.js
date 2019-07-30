@@ -16,7 +16,7 @@ router.get("/scrape", function(req, res) {
   request("http://www.buzzfeednews.com", function(error, response, html) {
     var $ = cheerio.load(html);
     var titlesArray = [];
-    console.log(html);
+    // console.log(html);
     $(".newsblock-story-card").each(function(i, element) {
       var result = {};
       console.log("demo");
@@ -26,7 +26,10 @@ router.get("/scrape", function(req, res) {
       result.link = $(this)
         .children("a")
         .attr("href");
-
+        result.image = $(this)
+        .children("img")
+        .attr("src");
+  console.log($(this).children("a"));
       if (result.title !== "" && result.link !== "") {
         if (titlesArray.indexOf(result.title) == -1) {
           titlesArray.push(result.title);

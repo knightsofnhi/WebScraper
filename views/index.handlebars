@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col s3"></div>
         <h5 class="card z-depth-3 center-align col s6">Click 'Scrape' to get the latest articles</h5>
+        <button type="button" class="btn btn-primary" id="btnSignUp">Scrape</button>
     </div>
 </div>
 <div class="row">
@@ -11,10 +12,14 @@
         {{#each article}}
         <div class="card-panel">
             <h4>{{this.title}}</h4>
-            <a href="/readArticle/{{this._id}}" class="waves-effect waves-light btn" id="btnSignUp">Read Article</a>
+            <img src="{{article.image}}">
+            <a href="/readArticle/{{this._id}}" class="waves-effect waves-light btn" id="btnSignUp">
+            Read Article</a>
 
         </div>
+        
 
         {{/each}}
     </div>
 </div>
+
