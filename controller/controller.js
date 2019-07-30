@@ -13,13 +13,13 @@ router.get("/", function(req, res) {
 });
 
 router.get("/scrape", function(req, res) {
-  request("http://www.theverge.com", function(error, response, html) {
+  request("http://www.buzzfeednews.com", function(error, response, html) {
     var $ = cheerio.load(html);
     var titlesArray = [];
-
-    $(".c-entry-box--compact__title").each(function(i, element) {
+    console.log(html);
+    $(".newsblock-story-card").each(function(i, element) {
       var result = {};
-
+      console.log("demo");
       result.title = $(this)
         .children("a")
         .text();
