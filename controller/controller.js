@@ -5,8 +5,8 @@ var path = require("path");
 var request = require("request");
 var cheerio = require("cheerio");
 
-var Comment = require("../models/Comment.js");
-var Article = require("../models/Article.js");
+var comment = require("../models/comment.js");
+var article = require("../models/article.js");
 
 router.get("/", function(req, res) {
   res.redirect("/WebScraper/public/index.html/articles");
