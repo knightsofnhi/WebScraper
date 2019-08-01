@@ -2,4 +2,4 @@
 
 Read articles from Buzzfeed News here!
 
-https://knightsofnhi.github.io/WebScraper/
+https://knightsofnhi.github.io/WebScraper/public/index.html
