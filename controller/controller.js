@@ -9,7 +9,7 @@ var comment = require("../models/comment.js");
 var article = require("../models/article.js");
 
 router.get("/", function(req, res) {
-  res.redirect("/WebScraper/public/index.html/articles");
+  res.redirect("/WebScraper/public/index.html/");
 });
 
 router.get("/scrape", function(req, res) {
@@ -57,7 +57,7 @@ router.get("/scrape", function(req, res) {
     res.redirect("/");
   });
 });
-router.get("/WebScraper/public/index.html/articles", function(req, res) {
+router.get("/WebScraper/articles", function(req, res) {
   Article.find()
     .sort({ _id: -1 })
     .exec(function(err, doc) {
@@ -70,7 +70,7 @@ router.get("/WebScraper/public/index.html/articles", function(req, res) {
     });
 });
 
-router.get("/WebScraper/public/index.html/articles-json", function(req, res) {
+router.get("/WebScraper/articles-json", function(req, res) {
   Article.find({}, function(err, doc) {
     if (err) {
       console.log(err);
@@ -88,7 +88,7 @@ router.get("/clearAll", function(req, res) {
       console.log("removed all articles");
     }
   });
-  res.redirect("/WebScraper/public/index.html/articles-json");
+  res.redirect("/WebScraper/articles-json");
 });
 
 router.get("/readArticle/:id", function(req, res) {
